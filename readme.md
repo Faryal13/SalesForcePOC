@@ -1,17 +1,42 @@
-Thank you for your interest in Beringer Technology Group.
-I'd like you to provide a code sample that will show off your ability to develop in Azure.
+# Salesforce Timer Function App
 
-Here's the requirements for your Function App:
-- Written in c#, and using the latest version of .NET
-- Timer triggerd, set to run every 30 minutes
-- Query the SalesForce API, and return data in a JSON format.  Here is the SalesForece API documentation:  https://www.integrate.io/blog/salesforce-rest-api-integration/
-- Store the JSON data in a service bus queue called DevTest.
-- Document the function app in a Readme.MD file
+This is an Azure Function App written in C# .Net that is triggered every 30 minutes. It connects to the Salesforce REST API, retrieves data in JSON format, and sends the results to an Azure Service Bus queue named `DevTest`.
 
-There are sample credentials and connection strings in the local.settings.json file.
-Please clone this branch, and upload your completed Visual Studio project to this repository.  I should be able to clone your branch, then compile and run your project.
-Reach out to me with any questions.
-Good luck :)
+---
 
-Rob Hess
-rhess@beringer.net
+## Features
+
+-  Built with the latest .NET version
+-  Timer Triggered: Runs every 30 minutes
+-  Connects to Salesforce via REST API
+- 📦Pushes JSON results to Azure Service Bus Queue (`DevTest`)
+-  Configurable settings via `local.settings.json`
+
+---
+
+## Folder Structure 
+.vs/                        # Visual Studio user settings
+bin/                        # Build output
+obj/                        # Build temp files
+
+.gitignore                  # Git ignore rules
+host.json                   # Azure Function host settings
+local.settings.json         # Local development settings
+Program.cs                  # Entry point for the app
+
+readme.md                   # Project documentation
+
+SalesforceClient.cs         # Handles auth & data fetching from Salesforce
+SalesForceFunctionApp.cs    # Main timer-triggered Azure Function
+ServiceBusSender.cs         # Handles sending JSON to Azure Service Bus
+
+SalesForcePOC.csproj        # Project file
+SalesForcePOC.sln           # Solution file
+
+
+## ⚙️ Configuration
+
+Before running the app, ensure the following settings are defined in `local.settings.json`:
+## ---func start--- command to run the function locally
+
+
